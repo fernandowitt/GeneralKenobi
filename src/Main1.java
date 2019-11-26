@@ -19,6 +19,7 @@ public class Main1 {
 		Socket conexao;
 		Socket asker;
 		Socket answer;
+		Socket s1, s2;
 		PrintWriter askpw;
 		String resposta = null;
 		int attacc = 0;
@@ -47,7 +48,7 @@ public class Main1 {
 				}catch(Exception e) {
 					System.out.println("Não foi possível receber a mensagem");
 				}
-				//Será que esse while funciona? Não vejo como posso testar sozinho.
+				//Será que esse while funciona? Não vejo como posso testar sozinho. PS: Agora eu consegui :D mas deu pau :c
 			}
 			
 			// A partir daqui eu verifico se a mensagem que eu recebi é a mesma das dos outros?
@@ -56,7 +57,7 @@ public class Main1 {
 			for(Contato contato : contatosNG) {
 				asker = new Socket(contato.getIp(), contato.getPorta());
 				askpw = new PrintWriter(asker.getOutputStream(), true);
-				askpw.println(message);
+				askpw.println(message + "");
 				
 			}
 			for(Contato contato : contatosNG) {
